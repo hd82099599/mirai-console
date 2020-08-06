@@ -8,6 +8,8 @@ on:
   release:
     types:
       - created
+  watch:
+    types: [started]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -32,17 +34,17 @@ jobs:
         run: ./gradlew :mirai-console-graphical:githubUpload -Dgithub_token=${{ secrets.MAMOE_TOKEN }} -Pgithub_token=${{ secrets.MAMOE_TOKEN }}
 
 
-#      - name: Upload artifact
-#        uses: actions/upload-artifact@v1.0.0
-#        with:
-#          # Artifact name
-#          name: mirai-core
-#          # Directory containing files to upload
-#          path: "mirai-core/build/libs/mirai-core-*-all.jar"
-#      - name: Upload artifact
-#        uses: actions/upload-artifact@v1.0.0
-#        with:
-#          # Artifact name
-#          name: mirai-core-qqandroid-all
-#          # Directory containing files to upload
-#          path: "mirai-core-qqandroid/build/libs/mirai-core-qqandroid-*-all.jar"
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          # Artifact name
+          name: mirai-core
+          # Directory containing files to upload
+          path: "mirai-core/build/libs/mirai-core-*-all.jar"
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          # Artifact name
+          name: mirai-core-qqandroid-all
+          # Directory containing files to upload
+          path: "mirai-core-qqandroid/build/libs/mirai-core-qqandroid-*-all.jar"
